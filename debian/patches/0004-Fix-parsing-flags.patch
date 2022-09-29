@@ -1,0 +1,23 @@
+Description: Initialize test so that test flags can be parsed during execution.
+--- a/quick_test.go
++++ b/quick_test.go
+@@ -8,6 +8,7 @@
+ 	"os"
+ 	"reflect"
+ 	"testing/quick"
++	"testing"
+ 	"time"
+ )
+ 
+@@ -23,6 +24,11 @@
+ 
+ var qcount, qseed, qmaxitems, qmaxksize, qmaxvsize int
+ 
++var testinit = func() bool {
++	testing.Init()
++	return true
++}()
++
+ func init() {
+ 	flag.IntVar(&qcount, "quick.count", 5, "")
+ 	flag.IntVar(&qseed, "quick.seed", int(time.Now().UnixNano())%100000, "")

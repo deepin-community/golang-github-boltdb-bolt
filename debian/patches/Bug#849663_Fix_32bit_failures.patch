@@ -1,0 +1,17 @@
+Description: This test uses a constant that is too big for 32bit systems.
+ The patch uses a smaller constant that hopefully works the same.
+Author: Martín Ferrari <tincho@debian.org>
+Origin: vendor, 
+Bug: https://github.com/boltdb/bolt/issues/645
+Last-Update: 2017-01-06
+--- a/db_test.go
++++ b/db_test.go
+@@ -531,7 +531,7 @@
+ 	path := tempfile()
+ 	defer os.Remove(path)
+ 
+-	initMmapSize := 1 << 31  // 2GB
++	initMmapSize := 1 << 29  // .5GB
+ 	testWriteSize := 1 << 27 // 134MB
+ 
+ 	db, err := bolt.Open(path, 0666, &bolt.Options{InitialMmapSize: initMmapSize})

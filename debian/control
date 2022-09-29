@@ -1,0 +1,25 @@
+Source: golang-github-boltdb-bolt
+Section: devel
+Priority: optional
+Homepage: https://github.com/boltdb/bolt
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Martín Ferrari <tincho@debian.org>,
+           Tim Potter <tpot@hpe.com>,
+Build-Depends: debhelper-compat (= 12),
+               dh-golang (>= 1.17~),
+               golang-any,
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-boltdb-bolt
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-boltdb-bolt.git
+XS-Go-Import-Path: github.com/boltdb/bolt
+Testsuite: autopkgtest-pkg-go
+Rules-Requires-Root: no
+
+Package: golang-github-boltdb-bolt-dev
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: low-level key/value database for Go
+ Bolt is a pure Go key/value store inspired by Howard Chu's and the LMDB
+ project. The goal of the project is to provide a simple, fast, and reliable
+ database for projects that don't require a full database server such as
+ Postgres or MySQL.
