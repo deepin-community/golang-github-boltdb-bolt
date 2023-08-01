@@ -2,3 +2,4 @@ Bug#849663_Fix_32bit_failures.patch
 0002-Increase-write-waiting-time-when-testing.patch
 0003-Add-support-for-mips-mips64.patch
 0004-Fix-parsing-flags.patch
+add_loong64.patch
